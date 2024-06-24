@@ -1,0 +1,65 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "ignorePatterns": ["node_modules", "dist", "build"], // Игнорирование этих папок
+  "extends": [
+    "eslint:recommended", // Базовые рекомендации ESLint
+    "plugin:react/recommended", // Рекомендации для React
+    "plugin:react-hooks/recommended", // Рекомендации для хуков React
+    "plugin:react/jsx-runtime", // Поддержка React без импорта (JSX трансформация)
+    "plugin:import/recommended", // Рекомендации для модульных импортов
+    "plugin:import/errors", // Обработка ошибок при импорте
+    "plugin:import/warnings", // Предупреждения при импорте
+    "airbnb", // Стандарты кодирования Airbnb
+    "plugin:prettier/recommended", // Интеграция с Prettier
+    "prettier" // Применение настроек Prettier
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true // Поддержка JSX синтаксиса
+    },
+    "ecmaVersion": "latest", // Использование последней версии ECMAScript
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
+    "sourceType": "module" // Модульный режим
+  },
+  "plugins": [
+    "react", // Плагин для React
+    "prettier",
+    "import"
+  ],
+  "rules": {
+    "indent": ["error", 2],
+    "prettier/prettier": ["error", { "semi": false }],
+    "linebreak-style": [0, "unix"],
+    "quotes": ["error", "single"],
+    "semi": [0, { "omitLastInOneLineClassBody": true }],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0,
+    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/order": [
+      2,
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/", "src/components"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}
