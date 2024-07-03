@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import Movie from '../movie/movie'
-import Context from '../../context'
 import './movie-list.css'
 
-export default function MoviesList() {
-  const { movieList } = useContext(Context)
-
+export default function MoviesList({ movieList }) {
+  console.log(movieList)
+  if (movieList.length === 0) return <div className="empty-message">По вашему запросу не найдено результатов</div>
   return (
     <div className="movie-list">
       {movieList.map((movie) => (

@@ -3,36 +3,32 @@
     "browser": true,
     "es2021": true
   },
-  "ignorePatterns": ["node_modules", "dist", "build"], // Игнорирование этих папок
+  "ignorePatterns": ["node_modules", "dist", "build"],
   "extends": [
-    "eslint:recommended", // Базовые рекомендации ESLint
-    "plugin:react/recommended", // Рекомендации для React
-    "plugin:react-hooks/recommended", // Рекомендации для хуков React
-    "plugin:react/jsx-runtime", // Поддержка React без импорта (JSX трансформация)
-    "plugin:import/recommended", // Рекомендации для модульных импортов
-    "plugin:import/errors", // Обработка ошибок при импорте
-    "plugin:import/warnings", // Предупреждения при импорте
-    "airbnb", // Стандарты кодирования Airbnb
-    "plugin:prettier/recommended", // Интеграция с Prettier
-    "prettier" // Применение настроек Prettier
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:import/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "airbnb",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true // Поддержка JSX синтаксиса
+      "jsx": true
     },
-    "ecmaVersion": "latest", // Использование последней версии ECMAScript
+    "ecmaVersion": "latest",
     "requireConfigFile": false,
     "babelOptions": {
       "presets": ["@babel/preset-react"]
     },
-    "sourceType": "module" // Модульный режим
+    "sourceType": "module"
   },
-  "plugins": [
-    "react", // Плагин для React
-    "prettier",
-    "import"
-  ],
+  "plugins": ["react", "prettier", "import"],
   "rules": {
     "indent": ["error", 2],
     "prettier/prettier": ["error", { "semi": false }],

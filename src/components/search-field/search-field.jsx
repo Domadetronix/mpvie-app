@@ -1,27 +1,29 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react'
-import { debounce } from 'lodash'
+import React, { useState } from 'react'
 
 import './search-field.css'
 
-export default function SearchMovie({ request, setRequest }) {
-  const handleInputChanges = (value) => {
-    setRequest(value)
-    debouncedGetResponse()
+export default function SearchMovie({ debouncedFetchMovies, defaultText }) {
+  const [text, setText] = useState([defaultText])
+  const handleInputChange = (value) => {
+    setText(value)
+    debouncedFetchMovies(value)
   }
-
-  const debouncedGetRequest = debounce((text) => setRequest(text), 2000)
   return (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
-    <form className="search-field" onSubmit={console.log(request)}>
+    <form
+      className="search-field"
+      onSubmit={(e) => {
+        e.preventDefault()
+      }}
+    >
       <input
         className="search-field__text"
         placeholder="Type to search..."
-        value={request}
+        value={text}
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus
-        onChange={(event) => handleInputChanges(event.target.value)}
+        onChange={(event) => {
+          handleInputChange(event.target.value)
+        }}
       />
     </form>
   )
