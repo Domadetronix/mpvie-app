@@ -3,3 +3,9 @@
   gap: 36px;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 500px) {
+  .movie-list {
+    gap: 20px;
+    flex-direction: column;
+  }
+}

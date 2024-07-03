@@ -2,6 +2,12 @@
     display: flex;
     gap: 36px;
     flex-wrap: wrap;
+
+    @media screen and (max-width: 500px) {
+        gap: 20px;
+        flex-direction: column;
+
+    }
 }
 
 .empty-message {}

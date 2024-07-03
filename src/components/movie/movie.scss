@@ -1,9 +1,28 @@
 .movie-item {
     width: 451px;
-    display: flex;
-    box-shadow: 0px 4px 12px 0px #00000026;
+    display: grid;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1490196078);
     height: 280px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 183px 1fr;
     position: relative;
+    grid-template-areas:
+        "poster info"
+        "poster description";
+    grid-gap: 0 20px;
+
+    @media screen and (max-width: 500px) {
+        max-width: 100%;
+        height: 245px;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto 1fr;
+        grid-gap: 10px 0;
+        position: relative;
+        grid-template-areas:
+            "poster info"
+            "description description";
+        padding: 10px 6px 20px 6px;
+    }
 }
 
 .movie-image {
@@ -12,15 +31,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    grid-area: poster;
+
+    @media screen and (max-width: 500px) {
+        margin-top: 6px;
+        width: 60px;
+        height: 91px;
+    }
 }
 
 .poster {
     width: 183px;
     height: 280px;
+
+    @media screen and (max-width: 500px) {
+        width: 60px;
+        height: 91px;
+    }
 }
 
+
+
+
+
 .movie-info {
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -28,9 +62,32 @@
     margin-right: 10px;
     overflow: hidden;
 
+    @media screen and (max-width: 500px) {
+        width: auto;
+        margin: 0;
+    }
+
+    &_first {
+        grid-area: info;
+        margin-top: 10px;
+        padding-bottom: 7px;
+
+        @media screen and (max-width: 500px) {
+            margin: 0;
+
+        }
+    }
+
+    &_second {
+        grid-area: description;
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__main-block {
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
     }
 
     &__name {
@@ -51,7 +108,6 @@
         border: solid #E9D100 2px;
         border-radius: 50%;
         font-size: 12px;
-        margin-right: 8px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -89,4 +145,11 @@
 
 .ant-rate {
     font-size: 16px;
+    margin-bottom: 20px;
+    width: fit-content;
+    align-self: flex-end;
+
+    @media screen and (max-width: 500px) {
+        margin: 0;
+    }
 }

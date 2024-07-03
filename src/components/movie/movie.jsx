@@ -61,7 +61,7 @@ export default function Movie({ movie }) {
         {!isLoading && error && <ErrorMessage description={error.message} />}
         {!isLoading && !error && <img className="poster" alt="poster" src={poster} />}
       </div>
-      <div className="movie-info">
+      <div className="movie-info movie-info_first">
         <div className="movie-info__main-block">
           <div className="movie-info__name">{movie.title}</div>
           <div
@@ -86,6 +86,8 @@ export default function Movie({ movie }) {
             </span>
           ))}
         </div>
+      </div>
+      <div className="movie-info movie-info_second">
         <div className="movie-info__description">{shortText(movie.overview)}</div>
         <Rate
           defaultValue={detectUserRating()}
